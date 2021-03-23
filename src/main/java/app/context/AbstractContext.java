@@ -18,6 +18,7 @@ public abstract class AbstractContext extends JPanel{
     private ArrayList<String> definitions;
     private JTextArea displayDefinition;
     public static List<String> listSection = getSections();
+    private final Properties properties = new Properties();
 
 
 
@@ -33,7 +34,6 @@ public abstract class AbstractContext extends JPanel{
 
     private ArrayList<String> getNameDefinitions(String property){
         try(FileReader reader = new FileReader("src/main/resources/definitions.properties", Charset.forName("cp1251"))) {
-            Properties properties = new Properties();
             properties.load(reader);
             String prop = (String) properties.get(property);
             nameDefinition =new ArrayList<>(Arrays.asList(prop.split("[|]")));
@@ -46,7 +46,6 @@ public abstract class AbstractContext extends JPanel{
 
     private ArrayList<String> getDescriptions(String property){
         try(FileReader reader = new FileReader("src/main/resources/descriptions.properties", Charset.forName("cp1251"))) {
-            Properties properties = new Properties();
             properties.load(reader);
             String prop = (String) properties.get(property);
             definitions =new ArrayList<>(Arrays.asList(prop.split("[|]")));

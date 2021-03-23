@@ -40,7 +40,6 @@ class SelectionPanel extends JPanel {
                frame.remove(frame.getCentralPanel());
                frame.setCentralPanel(AbstractContext.getInstance(listSection.get(selectedIndex)));
                frame.add(frame.getCentralPanel(),BorderLayout.CENTER);
-               currentSection=selectedIndex;
                frame.revalidate();
                frame.repaint();
            }
